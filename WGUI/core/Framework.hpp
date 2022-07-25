@@ -18,6 +18,9 @@
 
 _WGUI_BEGIN
 
+template<typename _Ty>
+using INIT_LIST = std::initializer_list<_Ty>;
+
 // 批量逻辑或运算
 template<typename _Ty, SIZE_T _Size>
 inline bool _or(_Ty A, _Ty (&&B)[_Size])
@@ -98,23 +101,23 @@ typedef union DATETIME
 		TIME Time;
 	};
 
-	DATETIME(DATE _Date, TIME _Time)
+	inline DATETIME(DATE _Date, TIME _Time)
 		: Date(_Date)
 		, Time(_Time)
 	{}
 
-	DATETIME(WORD _Year = 0, WORD _Month = 0, WORD _Day = 0,
+	inline DATETIME(WORD _Year = 0, WORD _Month = 0, WORD _Day = 0,
 			 WORD _Hour = 0, WORD _Minute = 0, WORD _Second = 0, WORD _Milliseconds = 0)
 		: DATETIME({_Year, _Month, _Day }, {_Hour, _Minute, _Second, _Milliseconds})
 	{}
 	
-	DATETIME(const SYSTEMTIME& _SysTime)
+	inline DATETIME(const SYSTEMTIME& _SysTime)
 		: DATETIME(_SysTime.wYear, _SysTime.wMonth, _SysTime.wDay,
 				  _SysTime.wHour, _SysTime.wMinute, _SysTime.wSecond, _SysTime.wMilliseconds)
 	{
 	}
 	
-	operator SYSTEMTIME()const
+	inline operator SYSTEMTIME()const
 	{
 		return {Year, Month, Day, Hour, Minute, Second, Milliseconds};
 	}
@@ -126,7 +129,7 @@ typedef union DATETIME
 #pragma region 大小写转换
 
 // 转换为大写
-void StrToUpper(char* const str)
+inline void StrToUpper(char* const str)
 {
 	size_t len = ::strlen(str);
 	for (size_t i = 0; i < len; i++)
@@ -135,7 +138,7 @@ void StrToUpper(char* const str)
 	}
 }
 // 转换为小写
-void StrToLower(char* const str)
+inline void StrToLower(char* const str)
 {
 	size_t len = ::strlen(str);
 	for (size_t i = 0; i < len; i++) {
@@ -144,7 +147,7 @@ void StrToLower(char* const str)
 }
 
 // 转换为大写
-void StrToUpper(wchar_t* const str)
+inline void StrToUpper(wchar_t* const str)
 {
 	size_t len = ::wcslen(str);
 	for (size_t i = 0; i < len; i++)
@@ -154,7 +157,7 @@ void StrToUpper(wchar_t* const str)
 }
 
 // 转换为小写
-void StrToLower(wchar_t* const str)
+inline void StrToLower(wchar_t* const str)
 {
 	size_t len = ::wcslen(str);
 	for (size_t i = 0; i < len; i++) {

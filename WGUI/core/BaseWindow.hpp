@@ -90,6 +90,14 @@ public:
 		if (::GetPropW(_hWnd, PROP_THIS) != nullptr)
 			return false;
 		
+		DWORD dwPID = 0;		// 绑定控件所属进程ID
+		DWORD dwTID = 0;		// 绑定控件所属线程ID
+		
+		// 检查是否为同一线程和同一进程
+		dwTID = ::GetWindowThreadProcessId(_hWnd, &dwPID);
+		if (dwPID != GetCurrentProcessId() || dwTID != ::GetCurrentThreadId())
+			return false;
+
 		// 获取窗口类名
 		WStr ClsName(260);
 		::GetClassNameW(_hWnd, ClsName, ClsName.Capacity());
@@ -263,24 +271,15 @@ protected:
 };
 
 class DesktopWindow
-	: private BaseWindow
+	: public BaseWindow
 {
 public:
 	inline DesktopWindow()noexcept
 		: BaseWindow()
-	{}
+	{
+		m_hWnd = ::GetDesktopWindow();
+	}
 	
-	inline HWND GetHWND()const noexcept
-	{
-		return ::GetDesktopWindow();
-	}
-
-	inline RECT GetRect()const noexcept
-	{
-		RECT rc;
-		::GetWindowRect(this->GetHWND(), &rc);
-		return rc;
-	}
 private:
 	// 控件创建前的初始化工作
 	virtual bool _CreateBefore_()noexcept

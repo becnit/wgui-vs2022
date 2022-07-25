@@ -106,7 +106,7 @@ protected:
 	}
 };
 
-
+// 控件边框类型
 enum class CtrlBorder : DWORD
 {
 	Null	= 0x00000000L,	// 没有边框
@@ -114,6 +114,7 @@ enum class CtrlBorder : DWORD
 	Suuken	= 0x00020000L,	// 凹陷边框，WS_EX_STATICEDGE
 };
 
+// 控件滚动条类型
 enum class CtrlScrollBar : DWORD
 {
 	Null = 0,						// 没有滚动条
@@ -128,6 +129,15 @@ struct TABLE_ITEM
 {
 	WStr Text = WStr();
 	_Ty Data = _Ty();
+};
+
+// 表项结构-扩展
+template<typename _Ty = INT32>
+struct TABLE_ITEM_EX
+{
+	WStr Text = WStr();
+	_Ty Data = _Ty();
+	int Image = -1;
 };
 
 _WGUI_END

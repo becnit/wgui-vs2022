@@ -14,6 +14,8 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\ImageList.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\listview\BaseListVIew.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)core\Alignment.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)core\BaseControl.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)core\GeneralAttributes.hpp" />
@@ -35,6 +37,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\ComboBoxEx.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\EditBox.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\ListBox.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\listview\ImageListView.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\listview\ReportListView.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\ProgressBar.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\ScrollBar.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\TextBox.hpp" />

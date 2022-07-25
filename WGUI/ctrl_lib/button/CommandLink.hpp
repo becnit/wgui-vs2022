@@ -49,9 +49,7 @@ protected:
 			return false;
 
 		// 指定说明文本
-		WindowAPI::SendMsg(BCM_SETNOTE, 0, NoteText.value.c_str());
-		std::wcout << L"Note = " << NoteText.value << std::endl;
-		
+		WindowAPI::SendMsg(BCM_SETNOTE, 0, NoteText.value.CStr());
 		return true;
 	}
 
@@ -67,10 +65,8 @@ private:
 
 			DWORD len = WindowAPI::SendMsg(BCM_GETNOTELENGTH, 0, 0) + 1;
 
-			if (len > NoteText.value.max_size())
-				NoteText.value.resize(len);
-
-			WindowAPI::SendMsg(BCM_GETNOTE, len, NoteText.value.data());
+			NoteText.value.SetCapacity(len);
+			WindowAPI::SendMsg(BCM_GETNOTE, len, NoteText.value.Data());
 		}
 	}
 
@@ -82,7 +78,7 @@ private:
 		if (_Symbol == NoteText.symbol)
 		{
 			// 设置提示文本
-			return WindowAPI::SendMsg(BCM_SETNOTE, 0, NoteText.value.c_str());
+			return WindowAPI::SendMsg(BCM_SETNOTE, 0, NoteText.value.CStr());
 		}
 		else return false;
 		return true;
@@ -90,7 +86,7 @@ private:
 
 public:
 	// 本属性指定说明文本
-	_property<CommandLink, std::wstring> NoteText;
+	_property<CommandLink, WStr> NoteText;
 };
 
 _WGUI_END

@@ -10,6 +10,9 @@
     <Filter Include="ctrl_lib\button">
       <UniqueIdentifier>{a718d219-9ba5-4a51-ba6f-d3cef5cb41bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ctrl_lib\listview">
+      <UniqueIdentifier>{d88481a4-17e9-4db3-aeef-650e8d3b5479}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)core\_auto_ptr.hpp">
@@ -85,6 +88,19 @@
       <Filter>ctrl_lib</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\ListBox.hpp">
+      <Filter>ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)WGUI.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\listview\BaseListVIew.hpp">
+      <Filter>ctrl_lib\listview</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\listview\ReportListView.hpp">
+      <Filter>ctrl_lib\listview</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\listview\ImageListView.h">
+      <Filter>ctrl_lib\listview</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ctrl_lib\ImageList.hpp">
       <Filter>ctrl_lib</Filter>
     </ClInclude>
   </ItemGroup>

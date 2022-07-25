@@ -69,7 +69,7 @@ inline int AddItem(LPCWSTR _Text, _Ty _Data = _Ty())noexcept
 // 在尾部添加一个或多个新的项目
 // @param _Items  项目文本
 // @returns 返回添加成功的项目数目
-inline int AddItems(const std::initializer_list<LPCWSTR>& _Items)noexcept
+inline int AddItems(const INIT_LIST<LPCWSTR>& _Items)noexcept
 {
 	int Count = 0;
 	for (auto& Item : _Items)
@@ -84,7 +84,7 @@ inline int AddItems(const std::initializer_list<LPCWSTR>& _Items)noexcept
 // @param _Items  项目数据数组
 // @returns 返回添加成功的项目数目
 template<typename _Ty = INT32>
-inline int AddItems(const std::initializer_list<TABLE_ITEM<_Ty>>& _Items)noexcept
+inline int AddItems(const INIT_LIST<TABLE_ITEM<_Ty>>& _Items)noexcept
 {
 	int Count = 0;
 	for (auto& Item : _Items)
@@ -113,7 +113,7 @@ inline int InsertItem(int _Index, LPCWSTR _Text, _Ty _Data = _Ty())
 // @param _Index  指定位置
 // @param _Items  项目文本
 // @returns 返回插入成功的项目数目
-inline int InsertItems(int _Index, const std::initializer_list<LPCWSTR>& _Items)noexcept
+inline int InsertItems(int _Index, const INIT_LIST<LPCWSTR>& _Items)noexcept
 {
 	int Count = 0;
 	for (auto& Item : _Items)
@@ -128,7 +128,7 @@ inline int InsertItems(int _Index, const std::initializer_list<LPCWSTR>& _Items)
 // @param _Items  项目数据数组
 // @returns 返回插入成功的项目数目
 template<typename _Ty = INT32>
-inline int InsertItems(int _Index, const std::initializer_list<TABLE_ITEM<_Ty>>& _Items)
+inline int InsertItems(int _Index, const INIT_LIST<TABLE_ITEM<_Ty>>& _Items)
 {
 	int Count = 0;
 	for (auto& Item : _Items)

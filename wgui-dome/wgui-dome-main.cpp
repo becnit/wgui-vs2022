@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include "WGUI.hpp"
+#include <cstdio>
 
 using namespace std;
 using namespace WGUI;
@@ -34,7 +35,7 @@ int main()
 
 	PushButton pb;
 	pb.Rect = { 50,50,150,30 };
-	wcout << pb.Create(wf) << endl;
+	pb.Create(wf);
 	pb.Caption = L"PushButon";
 
 	SplitButton sb;
@@ -56,7 +57,6 @@ int main()
 	rb.Rect = { 50,250,150,30 };
 	rb.Caption = L"RadioButton";
 	rb.Create(wf);
-	cout << (int)rb.HorzAlignMode.operator const WGUI::AlignMode &() << endl;
 
 	GroupBox gb;
 	gb.Rect = { 250,50,300,600 };
