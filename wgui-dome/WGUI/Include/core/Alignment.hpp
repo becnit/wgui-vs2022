@@ -20,15 +20,44 @@ enum class AlignMode : unsigned short
 // @param _HorzMode     水平对齐模式
 // @param _VertMode     垂直对齐模式
 template<class _ElemMove, class _ElemLock>
-inline void SetAlign(_ElemMove& _CtrlMove, const _ElemLock& _CtrlLock, AlignMode _HorzMode, AlignMode _VertMode)
+inline void SetAlign(_ElemMove& _CtrlMove,
+					 const _ElemLock& _CtrlLock,
+					 AlignMode _HorzMode,
+					 AlignMode _VertMode)
 {
 	RECT rcMove = _CtrlMove.GetRect();
 	RECT rcLock = _CtrlLock.GetRect();
 	RECT rc = rcMove;
 	
-	rc.left = (rcLock.right - rcMove.right) / 2;
-	rc.top = (rcLock.bottom - rcMove.bottom) / 2;
+	switch (_HorzMode)
+	{
+		case AlignMode::Near:
+		rc.left = rcLock.left;
+		break;
+		
+		case AlignMode::Center:
+			rc.left = (rcLock.right - rcMove.right) / 2;
+			break;
+		
+		case AlignMode::Far:
+			rc.left = rcLock.right - rcMove.right;
+			break;
+	}
 
+	switch (_VertMode)
+	{
+		case AlignMode::Near:
+			rc.top = rcLock.top;
+			break;
+			
+		case AlignMode::Center:
+			rc.top = (rcLock.bottom - rcMove.bottom) / 2;
+			break;
+			
+		case AlignMode::Far:
+			rc.top = rcLock.bottom - rcMove.bottom;
+			break;
+	}
 	_CtrlMove.Rect = { rc.left, rc.top, rc.right, rc.bottom };
 }
 

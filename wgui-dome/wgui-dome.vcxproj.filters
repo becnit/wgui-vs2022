@@ -13,10 +13,183 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="WGUI">
+      <UniqueIdentifier>{63182643-36e9-4715-b081-794b91ace646}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WGUI\Include">
+      <UniqueIdentifier>{7fb25740-1e50-4096-b9e5-f3924183a6ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WGUI\Source">
+      <UniqueIdentifier>{0f9e53a6-09bb-418b-94a4-5b596402ee59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WGUI\Include\core">
+      <UniqueIdentifier>{08e735f8-99a7-4054-8b9b-2eb7e66b0118}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WGUI\Include\ctrl_lib">
+      <UniqueIdentifier>{5f633d2f-147c-40ae-a010-7e15e88dbe89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WGUI\Source\core">
+      <UniqueIdentifier>{41aca737-5d8a-4121-bd32-b5602110d62c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WGUI\Source\ctrl_lib">
+      <UniqueIdentifier>{58bdef98-9e36-4371-a98a-992402532b95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WGUI\Include\ctrl_lib\button">
+      <UniqueIdentifier>{5fd73119-0dbd-4ac3-aa47-a2901b28e478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WGUI\Include\ctrl_lib\listview">
+      <UniqueIdentifier>{ffc6f34a-4857-4b09-9318-fe9eb9a028e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wgui-dome-main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="WGUI\Source\core\_property.cpp">
+      <Filter>WGUI\Source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="WGUI\Source\core\BaseControl.cpp">
+      <Filter>WGUI\Source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="WGUI\Source\ctrl_lib\DesktopWindow.cpp">
+      <Filter>WGUI\Source\ctrl_lib</Filter>
+    </ClCompile>
+    <ClCompile Include="WGUI\Source\core\Framework.cpp">
+      <Filter>WGUI\Source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="WGUI\Source\core\GenerialAttributes.cpp">
+      <Filter>WGUI\Source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="WGUI\Source\core\WindowAPI.cpp">
+      <Filter>WGUI\Source\core</Filter>
+    </ClCompile>
+    <ClCompile Include="WGUI\Source\ctrl_lib\Winform.cpp">
+      <Filter>WGUI\Source\ctrl_lib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WGUI\Include\core\_auto_ptr.hpp">
+      <Filter>WGUI\Include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\core\_property.hpp">
+      <Filter>WGUI\Include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\core\Alignment.hpp">
+      <Filter>WGUI\Include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\core\BaseControl.hpp">
+      <Filter>WGUI\Include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\core\BaseControlProc.hpp">
+      <Filter>WGUI\Include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\3StateButton.hpp">
+      <Filter>WGUI\Include\ctrl_lib\button</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\BaseButton.hpp">
+      <Filter>WGUI\Include\ctrl_lib\button</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\core\BaseWindow.hpp">
+      <Filter>WGUI\Include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\CommandLink.hpp">
+      <Filter>WGUI\Include\ctrl_lib\button</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\CheckBox.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\ComboBox.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\ComboBoxEx.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\DateTimeBox.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\DesktopWindow.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\EditBox.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\core\Framework.hpp">
+      <Filter>WGUI\Include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\core\GeneralAttributes.hpp">
+      <Filter>WGUI\Include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ImageListView2.hpp">
+      <Filter>WGUI\Include\ctrl_lib\listview</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ImageListView.h">
+      <Filter>WGUI\Include\ctrl_lib\listview</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\ImageList.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\ListBox.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\MenuBar.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\ProgressBar.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\PushButton.hpp">
+      <Filter>WGUI\Include\ctrl_lib\button</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\RadioButton.hpp">
+      <Filter>WGUI\Include\ctrl_lib\button</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ReportColumn2.hpp">
+      <Filter>WGUI\Include\ctrl_lib\listview</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ReportItem2.hpp">
+      <Filter>WGUI\Include\ctrl_lib\listview</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ReportListView.hpp">
+      <Filter>WGUI\Include\ctrl_lib\listview</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ReportListView2.hpp">
+      <Filter>WGUI\Include\ctrl_lib\listview</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\ScrollBar.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\TextBox.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\ToolBar.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\SplitButton.hpp">
+      <Filter>WGUI\Include\ctrl_lib\button</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\GroupBox.hpp">
+      <Filter>WGUI\Include\ctrl_lib\button</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\core\WindowAPI.hpp">
+      <Filter>WGUI\Include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\core\WStr.hpp">
+      <Filter>WGUI\Include\core</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\Winform.hpp">
+      <Filter>WGUI\Include\ctrl_lib</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\WGUI.hpp">
+      <Filter>WGUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\BaseListView.hpp">
+      <Filter>WGUI\Include\ctrl_lib\listview</Filter>
+    </ClInclude>
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\BaseListView2.hpp">
+      <Filter>WGUI\Include\ctrl_lib\listview</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="WGUI\Include\core\WGUI.manifest" />
   </ItemGroup>
 </Project>

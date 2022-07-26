@@ -3,6 +3,7 @@
 #define _WGUI_BASECONTROL_
 
 #include "BaseWindow.hpp"
+#include "BaseControlProc.hpp"
 
 _WGUI_BEGIN
 
@@ -10,15 +11,11 @@ _WGUI_BEGIN
 class BaseCtrlID
 {
 protected:
-	inline BaseCtrlID()
-	{
-		++m_BaseID;
-	}
+	inline BaseCtrlID();
 
 protected:
 	static DWORD m_BaseID;
 };
-DWORD BaseCtrlID::m_BaseID = 100;
 
 // 控件基类
 template<class _ElemCtrl>
@@ -30,6 +27,8 @@ protected:
 	inline BaseControl(LPCWSTR _CtrlClass)noexcept
 		: BaseWindow()
 		, BaseCtrlID()
+		, m_pHandleProc(nullptr)
+		, m_OldWndProc(nullptr)
 	{
 		// WS_CHILDWINDOW, 创建子窗口
 		// WS_CLIPCHILDREN，父窗口不对子窗口区域进行绘制
@@ -91,6 +90,18 @@ public:
 		return ::GetDlgCtrlID(m_hWnd);
 	}
 
+	// 设置控件消息处理类
+	// @param _ProcObj 消息处理类
+	// @returns 若设置成功，返回true，否则返回false
+	inline bool SetHandleProc(BaseControlProc<_ElemCtrl>& _ProcObj)noexcept
+	{
+		if (!WindowAPI::IsCreate() || m_OldWndProc != nullptr)
+			return false;
+		
+		m_OldWndProc = WindowAPI::WndLong(GWLP_WNDPROC, __CtrlProc);
+		return m_OldWndProc != nullptr;
+	}
+	
 protected:
 
 	// 控件创建前的初始化工作
@@ -104,7 +115,35 @@ protected:
 	{
 		return true;
 	}
+
+	// 调用处理类
+	inline bool CallHandleProc(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT& lRetnVal)noexcept
+	{
+		if (m_pHandleProc)
+			return m_pHandleProc->CtrlProc(uMsg, wParam, lParam, lRetnVal);
+		return false;
+	}
+
+private:
+	inline static LRESULT CALLBACK __CtrlProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)noexcept
+	{
+		_ElemCtrl* pCtrl = reinterpret_cast<_ElemCtrl*>(::GetPropW(hWnd, BaseWindow::PROP_THIS));
+		if (!pCtrl)
+			return 0;
+
+		LRESULT lResult = 0;
+		
+		if (pCtrl.CallHandleProc(uMsg, wParam, lParam, lResult))
+			return lResult;
+		return ::CallWindowProcW(pCtrl.m_OldWndProc, hWnd, uMsg, wParam, lParam);
+	}
+	
+private:
+	BaseControlProc<_ElemCtrl>* m_pHandleProc;
+	WNDPROC m_OldWndProc;
 };
+
+#pragma region 控件一些数据结构
 
 // 控件边框类型
 enum class CtrlBorder : DWORD
@@ -139,6 +178,8 @@ struct TABLE_ITEM_EX
 	_Ty Data = _Ty();
 	int Image = -1;
 };
+
+#pragma endregion
 
 _WGUI_END
 

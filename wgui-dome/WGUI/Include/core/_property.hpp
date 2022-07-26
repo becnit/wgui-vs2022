@@ -10,9 +10,7 @@
 class _property_symbol
 {
 protected:
-	inline _property_symbol()noexcept
-		: symbol(m_basic_symbol++)
-	{}
+	_property_symbol()noexcept;
 
 	const int symbol;	// 属性变量标识符
 
@@ -20,10 +18,6 @@ private:
 	// 类成员属性类自增标识符
 	static int m_basic_symbol;
 };
-int _property_symbol::m_basic_symbol = 0;
-
-
-
 
 // 类成员属性类
 template<class _Elem, typename _Ty>

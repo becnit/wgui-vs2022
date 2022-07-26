@@ -55,9 +55,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared">
-    <Import Project="..\WGUI\WGUI.vcxitems" Label="Shared" />
-  </ImportGroup>
+  <ImportGroup Label="Shared" />
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -71,6 +69,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <SourcePath>wgui\Source;$(SourcePath)</SourcePath>
+    <ReferencePath>WGUI\Source;$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -129,6 +131,58 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="wgui-dome-main.cpp" />
+    <ClCompile Include="WGUI\Source\core\BaseControl.cpp" />
+    <ClCompile Include="WGUI\Source\core\Framework.cpp" />
+    <ClCompile Include="WGUI\Source\core\GenerialAttributes.cpp" />
+    <ClCompile Include="WGUI\Source\core\WindowAPI.cpp" />
+    <ClCompile Include="WGUI\Source\core\_property.cpp" />
+    <ClCompile Include="WGUI\Source\ctrl_lib\DesktopWindow.cpp" />
+    <ClCompile Include="WGUI\Source\ctrl_lib\Winform.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WGUI\Include\core\Alignment.hpp" />
+    <ClInclude Include="WGUI\Include\core\BaseControl.hpp" />
+    <ClInclude Include="WGUI\Include\core\BaseControlProc.hpp" />
+    <ClInclude Include="WGUI\Include\core\BaseWindow.hpp" />
+    <ClInclude Include="WGUI\Include\core\Framework.hpp" />
+    <ClInclude Include="WGUI\Include\core\GeneralAttributes.hpp" />
+    <ClInclude Include="WGUI\Include\core\WindowAPI.hpp" />
+    <ClInclude Include="WGUI\Include\core\WStr.hpp" />
+    <ClInclude Include="WGUI\Include\core\_auto_ptr.hpp" />
+    <ClInclude Include="WGUI\Include\core\_property.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\3StateButton.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\BaseButton.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\CheckBox.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\CommandLink.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\GroupBox.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\PushButton.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\RadioButton.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\button\SplitButton.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\ComboBox.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\ComboBoxEx.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\DateTimeBox.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\DesktopWindow.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\EditBox.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\ImageList.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\ListBox.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\BaseListView.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\BaseListView2.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ImageListView.h" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ImageListView2.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ReportColumn2.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ReportItem2.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ReportListView.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\listview\ReportListView2.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\MenuBar.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\ProgressBar.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\ScrollBar.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\TextBox.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\ToolBar.hpp" />
+    <ClInclude Include="WGUI\Include\ctrl_lib\Winform.hpp" />
+    <ClInclude Include="WGUI\Include\WGUI.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="WGUI\Include\core\WGUI.manifest" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

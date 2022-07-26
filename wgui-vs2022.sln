@@ -5,8 +5,6 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wgui-dome", "wgui-dome\wgui-dome.vcxproj", "{7325AB07-42C4-46C6-BBF3-2C1854811656}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WGUI", "WGUI\WGUI.vcxitems", "{A9C229BE-EADB-46CB-A532-BB9AD9AEDB6E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -29,9 +27,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66D890CC-7E28-45B2-890A-6B9E367AA6D1}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		WGUI\WGUI.vcxitems*{7325ab07-42c4-46c6-bbf3-2c1854811656}*SharedItemsImports = 4
-		WGUI\WGUI.vcxitems*{a9c229be-eadb-46cb-a532-bb9ad9aedb6e}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal

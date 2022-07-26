@@ -13,6 +13,7 @@
 #pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 #endif
 
+#include "ctrl_lib/DesktopWindow.hpp"
 #include "ctrl_lib/Winform.hpp"
 #include "ctrl_lib/button/PushButton.hpp"
 #include "ctrl_lib/button/3StateButton.hpp"

@@ -8,7 +8,7 @@ class _auto_ptr
 {
 public:
 #pragma region 构造和析构
-
+	
 	// 不允许隐式调用该构造函数
 	explicit inline _auto_ptr(_Ty* _Ptr = nullptr, size_t _Size = 0)noexcept
 		: m_Ptr(nullptr)
@@ -27,6 +27,7 @@ public:
 			m_Ptr = new _Ty[m_Size]{ _Init };
 		}
 	}
+		
 
 	inline _auto_ptr(_auto_ptr& _right)noexcept
 		: _auto_ptr()

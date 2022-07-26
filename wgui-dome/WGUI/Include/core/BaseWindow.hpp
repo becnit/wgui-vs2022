@@ -270,30 +270,6 @@ protected:
 	static constexpr WCHAR PROP_FONT[8]{ L"2VBGG23" };
 };
 
-class DesktopWindow
-	: public BaseWindow
-{
-public:
-	inline DesktopWindow()noexcept
-		: BaseWindow()
-	{
-		m_hWnd = ::GetDesktopWindow();
-	}
-	
-private:
-	// 控件创建前的初始化工作
-	virtual bool _CreateBefore_()noexcept
-	{
-		return true;
-	}
-
-	// 控件创建后的初始化工作
-	virtual bool _CreateAfter_()noexcept
-	{
-		return true;
-	}
-};
-
 _WGUI_END
 
 #endif // !_WGUI_BASE_WINDOW_

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <thread>
-#include "WGUI.hpp"
+#include "WGUI/Include/WGUI.hpp"
 #include <cstdio>
 
 using namespace std;
@@ -86,6 +86,22 @@ int main()
 	lb.Create(wf);
 	lb.AddItems({ L"Item1", L"Item2", L"Item3", L"Item4", L"Item5" });
 	lb.Border = ListBoxBorder::Border;
+
+	/*class ListBoxProc
+		: public BaseControlProc<ListBox>
+	{
+	public:
+		ListBoxProc(ListBox& Obj)
+			: BaseControlProc<ListBox>(Obj)
+		{
+		}
+	};
+	
+	ListBoxProc lbp(lb);
+	
+	lb.SetHandleProc(lbp);*/
+
+	
 	
 	if (wf.IsCreate())
 		return WGUI::MessageLoop();

@@ -21,9 +21,11 @@ _WGUI_BEGIN
 template<typename _Ty>
 using INIT_LIST = std::initializer_list<_Ty>;
 
+#pragma region 逻辑运算增强
+
 // 批量逻辑或运算
 template<typename _Ty, SIZE_T _Size>
-inline bool _or(_Ty A, _Ty (&&B)[_Size])
+inline bool _or(_Ty A, _Ty(&& B)[_Size])
 {
 	bool b = false;
 
@@ -36,7 +38,7 @@ inline bool _or(_Ty A, _Ty (&&B)[_Size])
 
 // 批量逻辑与运算
 template<typename _Ty, SIZE_T _Size>
-inline bool _and(_Ty A, _Ty(&&B)[_Size])
+inline bool _and(_Ty A, _Ty(&& B)[_Size])
 {
 	bool b = false;
 
@@ -48,6 +50,8 @@ inline bool _and(_Ty A, _Ty(&&B)[_Size])
 	}
 	return b;
 }
+
+#pragma endregion
 
 #pragma region 自定义结构
 
@@ -101,26 +105,15 @@ typedef union DATETIME
 		TIME Time;
 	};
 
-	inline DATETIME(DATE _Date, TIME _Time)
-		: Date(_Date)
-		, Time(_Time)
-	{}
+	DATETIME(DATE _Date, TIME _Time);
 
-	inline DATETIME(WORD _Year = 0, WORD _Month = 0, WORD _Day = 0,
-			 WORD _Hour = 0, WORD _Minute = 0, WORD _Second = 0, WORD _Milliseconds = 0)
-		: DATETIME({_Year, _Month, _Day }, {_Hour, _Minute, _Second, _Milliseconds})
-	{}
+	DATETIME(WORD _Year = 0, WORD _Month = 0, WORD _Day = 0,
+			 WORD _Hour = 0, WORD _Minute = 0, WORD _Second = 0,
+			 WORD _Milliseconds = 0);
 	
-	inline DATETIME(const SYSTEMTIME& _SysTime)
-		: DATETIME(_SysTime.wYear, _SysTime.wMonth, _SysTime.wDay,
-				  _SysTime.wHour, _SysTime.wMinute, _SysTime.wSecond, _SysTime.wMilliseconds)
-	{
-	}
+	DATETIME(const SYSTEMTIME& _SysTime);
 	
-	inline operator SYSTEMTIME()const
-	{
-		return {Year, Month, Day, Hour, Minute, Second, Milliseconds};
-	}
+	operator SYSTEMTIME()const;
 	
 }*PDATETIME;
 
@@ -129,44 +122,18 @@ typedef union DATETIME
 #pragma region 大小写转换
 
 // 转换为大写
-inline void StrToUpper(char* const str)
-{
-	size_t len = ::strlen(str);
-	for (size_t i = 0; i < len; i++)
-	{
-		str[i] = ::toupper(str[i]);
-	}
-}
+void StrToUpper(char* const str);
+
 // 转换为小写
-inline void StrToLower(char* const str)
-{
-	size_t len = ::strlen(str);
-	for (size_t i = 0; i < len; i++) {
-		str[i] = ::tolower(str[i]);
-	}
-}
+void StrToLower(char* const str);
 
 // 转换为大写
-inline void StrToUpper(wchar_t* const str)
-{
-	size_t len = ::wcslen(str);
-	for (size_t i = 0; i < len; i++)
-	{
-		str[i] = ::toupper(str[i]);
-	}
-}
+void StrToUpper(wchar_t* const str);
 
 // 转换为小写
-inline void StrToLower(wchar_t* const str)
-{
-	size_t len = ::wcslen(str);
-	for (size_t i = 0; i < len; i++) {
-		str[i] = ::tolower(str[i]);
-	}
-}
+void StrToLower(wchar_t* const str);
 
 #pragma endregion
-
 
 _WGUI_END
 
